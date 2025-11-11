@@ -6,6 +6,7 @@ const router = Router();
 
 router.get("/", auth, async (_, res) => {
   const result = await pool.query("SELECT * FROM AuditLogs ORDER BY timestamp DESC LIMIT 50");
+  console.log(result.rows);
   res.json(result.rows);
 });
 

@@ -31,19 +31,9 @@ CREATE TABLE Products (
     price NUMERIC
 );
 
--- TRIGGER FUNCTION
-CREATE OR REPLACE FUNCTION log_change() RETURNS TRIGGER AS $$
-BEGIN
-  INSERT INTO AuditLogs(user_id, action, table_name, old_data, new_data)
-  VALUES (current_setting('app.current_user')::INT, TG_OP, TG_TABLE_NAME, row_to_json(OLD), row_to_json(NEW));
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
+DROP TRIGGER IF EXISTS product_change_trigger ON Products;
+DROP FUNCTION IF EXISTS log_change();
 
--- TRIGGERS
-CREATE TRIGGER product_change_trigger
-AFTER INSERT OR UPDATE OR DELETE ON Products
-FOR EACH ROW EXECUTE FUNCTION log_change();
 
 -- Insert base roles
 INSERT INTO Roles(role_name) VALUES ('admin'), ('auditor'), ('dataentry'), ('guest');
