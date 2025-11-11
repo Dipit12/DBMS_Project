@@ -15,6 +15,7 @@ export default function RoleManagement() {
   function assignRole(user_id) {
     if (!role.trim()) return alert("Enter a role first.");
     api.post("/admin/assign-role", { user_id, role_name: role }).then(fetchUsers);
+    
   }
 
   async function createUser() {
@@ -51,7 +52,7 @@ export default function RoleManagement() {
       <h2 className="text-2xl font-semibold">Role Management</h2>
 
      {/* Create User Form */}
-<div className="glass soft-shadow p-6 rounded-xl w-[420px]">
+<div className="bg-amber-200 glass soft-shadow p-6 rounded-xl w-[420px]">
   <h3 className="font-semibold mb-4">Create New User</h3>
 
   <input
@@ -71,7 +72,7 @@ export default function RoleManagement() {
 
   {/* Role Dropdown */}
   <select
-    className="border p-2 rounded w-full mb-4"
+    className=" border p-2 rounded w-full mb-4"
     value={newUser.role}
     onChange={e => setNewUser({ ...newUser, role: e.target.value })}
   >
@@ -93,8 +94,8 @@ export default function RoleManagement() {
 
       {/* Assign Role */}
       <input className="border p-2 rounded w-80" placeholder="admin / auditor / dataentry / guest" onChange={e => setRole(e.target.value)} />
-
-      <table className="w-full glass soft-shadow rounded-xl">
+    <div className = "overflow-y-auto max-h-[60vh]">
+       <table className="w-full glass soft-shadow rounded-xl">
         <thead>
           <tr className="bg-white/20 text-left">
             <th className="p-3">User</th>
@@ -117,6 +118,8 @@ export default function RoleManagement() {
           ))}
         </tbody>
       </table>
+    </div>
+     
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Login({ onLogin }) {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen min-w-screen bg-gray-100">
       <form
         onSubmit={login}
         className="w-[370px] bg-white shadow-lg rounded-lg p-8"
@@ -40,7 +40,7 @@ export default function Login({ onLogin }) {
 
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium w-full py-2 rounded transition"
+            className="bg-purple-500 hover:bg-blue-700 text-black font-medium w-full py-2 rounded transition"
           >
             Login
           </button>
