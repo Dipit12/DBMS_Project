@@ -9,5 +9,6 @@ export async function userHasRole(user_id: number, role_name: string) {
     [user_id]
   );
 
+
   return result.rows.some((row) => row.role_name === role_name);
 }
