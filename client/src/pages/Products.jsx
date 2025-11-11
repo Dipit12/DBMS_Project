@@ -25,7 +25,7 @@ export default function Products() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full ">
       <h2 className="text-2xl font-semibold">Products</h2>
 
       <div className="flex gap-3">

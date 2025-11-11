@@ -29,11 +29,11 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="p-8 bg-gray-50 min-h-screen w-screen">
 
-      <h1 className="text-3xl font-bold">Analytics Overview</h1>
+      <h1 className="text-3xl font-bold mb-5">Analytics Overview</h1>
 
-      <div className="glass soft-shadow p-6 rounded-xl">
+      <div className=" w-1/2 h-2/3 glass soft-shadow p-6 rounded-xl">
       <Bar
   key={JSON.stringify(counts)}
   data={{
@@ -53,7 +53,7 @@ export default function Dashboard() {
 
       <button
         onClick={analyze}
-        className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg transition"
+        className="bg-green-300 hover:border-amber-100 text-black mt-8 px-5 py-2 rounded-lg transition"
       >
         🔍 Analyze Logs with AI
       </button>

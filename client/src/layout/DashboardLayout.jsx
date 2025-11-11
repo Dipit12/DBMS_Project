@@ -11,11 +11,11 @@ export default function DashboardLayout({ onLogout }) {
   const { pathname } = useLocation();
 
   return (
-    <div className="min-h-screen flex bg-[#EEF1F6] text-gray-800">
+    <div className="min-h-screen flex text-gray-800">
 
       {/* Sidebar */}
-      <aside className="w-64 bg-[#0E1525] text-white flex flex-col p-6 space-y-8 shadow-2xl">
-        <h1 className="text-3xl font-extrabold tracking-tight">DB Secure</h1>
+      <aside className="w-72 bg-[#0E1525] text-white flex flex-col p-6 space-y-8 shadow-2xl">
+        <h1 className="mt-4 text-3xl font-extrabold tracking-tight">DB Secure</h1>
 
         <nav className="space-y-3 flex-1">
           {nav.map(item => (
@@ -32,14 +32,14 @@ export default function DashboardLayout({ onLogout }) {
 
         <button
           onClick={onLogout}
-          className="bg-red-500 hover:bg-red-600 py-2 rounded-lg transition w-full"
+          className="bg-purple-500 hover:bg-red-600 py-2 rounded-lg transition w-full"
         >
           Logout
         </button>
       </aside>
 
       {/* Main Area */}
-      <main className="flex-1 p-10">
+      <main className="p-10">
         <Outlet />
       </main>
 
